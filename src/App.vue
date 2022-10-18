@@ -59,6 +59,30 @@ export default {
         this.changeLocalStorageApp(local);
       }
     },
+    createChangesRoutesForGHPagesGithub() {
+      const path = window.location.pathname.slice(1).split('/')[1];
+
+      if (path !== '') {
+        new Promise((resolve) => {
+          localStorage.setItem('path', path);
+          const data = localStorage.getItem('path');
+          return data ? resolve() : '';
+        })
+          .then(() => {
+            window.location.href = '/vue-baze/';
+          });
+      }
+
+      new Promise((resolve) => {
+        const pathInStorage = localStorage.getItem('path');
+        return pathInStorage ? resolve(pathInStorage) : '';
+      })
+        .then((data) => this.$router.push(data))
+        .then(() => localStorage.removeItem('path'));
+    },
+  },
+  mounted() {
+    this.createChangesRoutesForGHPagesGithub();
   },
   created() {
     this.listenerWindowResize();

@@ -11,7 +11,7 @@ export function getRandomInt(from, to) {
  */
 export function debounce(fn, delay) {
   let timeoutID = null;
-  return function () {
+  return () => {
     clearTimeout(timeoutID);
     const args = arguments;
     const that = this;

@@ -16,6 +16,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-plusplus': 'off',
     'import/prefer-default-export': 'off',
-    'prefer-rest-params': 'off'
+    'prefer-rest-params': 'off',
+    'no-unused-expressions':'off',
   },
 };
