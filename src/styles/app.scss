@@ -1,0 +1,35 @@
+// Цвета для проекта
+$dark: #2c3e50;
+$light: #ffffff;
+$positive: #42b983;
+$negative: #e52800;
+$primary: #0a00ff;
+$bgc: #a0d6c8c0;
+$grey: #4d4d4d;
+$lighteGrey: #e0e0e0;
+$lightGreyText: #93989c;
+$styleColor: #32a5b1;
+
+$header-height: 80px;
+$footer-height: 100px;
+
+@mixin a {
+    color: $dark;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+@mixin header-link-active{
+    color: $light !important;
+}
+
+@mixin select {
+    position: relative;
+    border: none;
+    background: none;
+    font-weight: bold;
+    outline: none;
+    text-decoration: underline;
+    margin: 10px;
+    color: #2c3e50;
+    font-size: 16px;
+    cursor: pointer;
+}
