@@ -1,36 +1,41 @@
 <template>
-  <div id="info">
+  <div id="information">
 
-    <div class="title">
-      {{t('toolsForCreating')}}
+    <div class="title">{{t('whatIDidOnPastProjects')}} ?:</div>
+    <div class="info">
+      <li class="description">
+        {{t('workedOnProjectsFor')}}: Vue ( +Typescript, +Nuxt), React, jQuery
+      </li>
+      <li class="description">{{t('usedLibraries')}}: Lodash, Vuetify, Vue Material,
+        Element Ui, Bootstrap-Vue, Quasar, Buefy</li>
+      <li class="description">{{t('projectWithOnlineBroadcast')}}</li>
+      <li class="description">{{t('neuronForFood')}}</li>
+      <li class="description">{{t('differentWorks')}}</li>
+      <li class="description">{{t('interfaceSupport')}}</li>
+      <li class="description">{{t('architectureOfProjects')}}</li>
     </div>
+
+    <div class="title">{{t('toolsForCreating')}}</div>
     <div class="info">
       <div class="title">Vue CLI</div>
       <li class="description">vue create my-project</li>
       <div class="title">{{t('featuresAdded')}}:</div>
-      <li class="description">Babel, Router, Vuex, CSS Pre-processor, Eslint, vue 3</li>
-      <div class="title">{{t('installedAdditionalModules')}}:</div>
-      <li class="description">Bootstrap</li>
+      <li class="description">Router, Vuex, CSS Pre-processor, Eslint, Bootstrap</li>
       <div class="title">{{t('addedCustomMudules')}}:</div>
       <li class="description">Helpers, Locales</li>
       <div class="title">{{t('theProjectProvidedWorkWith')}}:</div>
-      <li class="description">Vuex, Vue Router, Localstorage</li>
+      <li class="description">Vuex, Vue Router, Localstorage, Canvas</li>
     </div>
 
-    <div class="title">
-      {{t('idea')}}:
-      <div class="info">
-        <li class="description">Vuex ( {{t('dividedIntoModules')}} )</li>
-        <li class="description">Helpers ( {{t('removalOfReusedFunctions')}} )</li>
-        <li class="description">Locales (
-          {{t('eachIndividualModuleHasASeparateLocalization')}} )
-        </li>
-        <li class="description">
-          Styles ( {{t('theAbilityToTakeOutIndividualStylesForASpecificModule')}} )
-        </li>
-        <li class="description">Styles SCSS( {{t('createdReusedVariablesAndMixins')}} )</li>
-      </div>
+    <div class="title">{{t('idea')}}:</div>
+    <div class="info">
+      <li class="description">Vuex ( {{t('dividedIntoModules')}} )</li>
+      <li class="description">Helpers ( {{t('removalOfReusedFunctions')}} )</li>
+      <li class="description">Locales ( {{t('separateLocalization')}} )</li>
+      <li class="description">Styles ( {{t('individualStylesForASpecificModule')}} )</li>
+      <li class="description">Styles SCSS( {{t('createdReusedVariablesAndMixins')}} )</li>
     </div>
+
   </div>
 </template>
 
@@ -67,7 +72,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/styles/app.scss";
 
-#info{
+#information{
   display: flex;
   flex-direction: column;
   justify-content: space-between;

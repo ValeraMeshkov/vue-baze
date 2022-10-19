@@ -29,17 +29,19 @@ export default {
       ctx: null,
       mouse: null,
       colorLines: {
-        hue: 186,
+        hue: 0,
         saturation: 56,
         luminosity: 45,
         alpha: 1,
       },
       heightHeader: 80,
       showFullPicker: true,
+      colorPickerTimer: null,
     };
   },
   mounted() {
     this.startCanvas();
+    this.colorPickInputTimer();
   },
   unmounted() {
     this.closeCanvas();
@@ -56,21 +58,43 @@ export default {
       localStorageApp: (state) => state.localStorageApp,
     }),
   },
+
   methods: {
     ...mapActions('canvas1', ['addCircle', 'addLine', 'clearAllCircles', 'clearAllLines']),
+    /**
+     * таймер который меняет цвет линий в канвасе
+     */
+    colorPickInputTimer() {
+      this.colorPickerTimer = setInterval(() => {
+        this.colorLines.hue >= 360 ? this.colorLines.hue = 0 : this.colorLines.hue += 0.1;
+      }, 10);
+    },
+    /**
+     * изменение цвета линий, также прерывает действие таймера
+     */
     colorPickInput(hue) {
+      clearInterval(this.colorPickerTimer);
       this.colorLines.hue = hue;
     },
+    /**
+     * обнуление канваса
+     */
     closeCanvas() {
       this.canvas = null;
       this.ctx = null;
       this.clearAllCircles();
       this.clearAllLines();
     },
+    /**
+     * Обновление канваса
+     */
     updateCanvas() {
       this.closeCanvas();
       this.$router.go(0);
     },
+    /**
+     * запуск канваса
+     */
     startCanvas() {
       this.loadCanvas();
 
@@ -87,28 +111,45 @@ export default {
       }
       this.init();
     },
+    /**
+     * загрузка канваса
+     */
     loadCanvas() {
       this.canvas = document.querySelector('#canvas1');
       this.canvas.width = this.WINDOW_WIDTH;
       this.canvas.height = this.WINDOW_HEIGHT - this.heightHeader;
     },
-
+    /**
+     * создание точек
+     */
     createCircles() {
       for (let i = 0; i < this.circlesCount; i++) {
         this.addCircle({ w: this.canvas.width, h: this.canvas.height });
       }
     },
+    /**
+     * создание линий
+     */
     createLines(i, j) { this.addLine({ i, j }); },
 
+    /**
+     * создание точки для мыши
+     */
     createMouse() {
       this.mouse = {
-        r: 0.5, x: this.MOUSE_COORDINATES.x, y: this.MOUSE_COORDINATES.y + 100, color: 'white',
+        r: 1.5, x: this.MOUSE_COORDINATES.x, y: this.MOUSE_COORDINATES.y + 100, color: 'white',
       };
     },
+    /**
+     * инициализация приложения
+     */
     init() {
       this.ctx = this.canvas.getContext('2d');
       this.drawAllComponents();
     },
+    /**
+     * отрисовка всех компонентов
+     */
     drawAllComponents() {
       if (this.ctx === null) {
         window.cancelAnimationFrame(this.drawAllComponents.bind(this));
@@ -128,6 +169,9 @@ export default {
       this.drawMouse();
       window.requestAnimationFrame(this.drawAllComponents.bind(this));
     },
+    /**
+     * отрисовка точки
+     */
     drawCircle(item) {
       this.ctx.beginPath();
       this.ctx.arc(item.x, item.y, item.radius, 0, 2 * Math.PI, false);
@@ -136,6 +180,9 @@ export default {
       this.ctx.fill();
       this.circleUpdate(item);
     },
+    /**
+     * отрисовка линии
+     */
     drawLine(item) {
       this.ctx.beginPath();
       let getD;
@@ -145,13 +192,15 @@ export default {
       }
 
       if (item.circleI === this.circles.length) {
+        getD = disance(this.MOUSE_COORDINATES, this.circles[item.circleJ]);
+        if (getD > 250) return;
         this.ctx.moveTo(this.MOUSE_COORDINATES.x, this.MOUSE_COORDINATES.y - this.heightHeader);
         this.ctx.lineTo(this.circles[item.circleJ].x, this.circles[item.circleJ].y);
-        getD = disance(this.MOUSE_COORDINATES, this.circles[item.circleJ]);
       } else {
+        getD = disance(this.circles[item.circleI], this.circles[item.circleJ]);
+        if (getD > 250) return;
         this.ctx.moveTo(this.circles[item.circleI].x, this.circles[item.circleI].y);
         this.ctx.lineTo(this.circles[item.circleJ].x, this.circles[item.circleJ].y);
-        getD = disance(this.circles[item.circleI], this.circles[item.circleJ]);
       }
 
       this.ctx.strokeStyle = `hsla(${this.colorLines.hue}, 100%, 50%,${1 - getD / 200})`;
@@ -159,6 +208,9 @@ export default {
       this.ctx.fill();
       this.ctx.stroke();
     },
+    /**
+     * отрисовка точки мыши
+     */
     drawMouse() {
       this.ctx.beginPath();
       this.ctx.arc(
@@ -170,6 +222,9 @@ export default {
       this.ctx.fillStyle = this.color;
       this.ctx.fill();
     },
+    /**
+     * обновление направления движения точки
+     */
     circleUpdate(item) {
       if (item.x + item.radius >= this.canvas.width || item.x - item.radius <= 0) {
         item.dx = -item.dx;

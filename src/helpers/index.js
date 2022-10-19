@@ -7,7 +7,7 @@ export function getRandomInt(from, to) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 /**
- * debounce
+ * частый вызов функции прерывается и срабатавыет через delay
  */
 export function debounce(fn, delay) {
   let timeoutID = null;

@@ -5,7 +5,7 @@ export default {
    * Добавление точки с координатами и направлением движения
    */
   addCircle(context, obj) {
-    const radius = getRandomInt(1, 5);
+    const radius = getRandomInt(1, 4);
     const speed = 3;
     context.commit('setAddCricle', {
       radius,
