@@ -271,4 +271,17 @@ export default {
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
   opacity: 0;
 }
+@media screen and (max-width: 600px) {
+
+.colorPicker{
+  position: fixed;
+
+  &[aria-expanded = false]{
+    transform: scale(0.5) translate(-60%, -60%)
+  }
+  &[aria-expanded = true]{
+    transform: scale(0.5) translate(-60%, -60%)
+  }
+}
+}
 </style>

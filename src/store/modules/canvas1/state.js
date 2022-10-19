@@ -1,5 +1,5 @@
 export default {
-  circlesCount: 100,
+  circlesCount: window.innerWidth / 10,
   circles: [],
   lines: [],
 };
