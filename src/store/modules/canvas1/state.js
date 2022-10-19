@@ -1,5 +1,5 @@
 export default {
-  circlesCount: 30,
+  circlesCount: 100,
   circles: [],
   lines: [],
 };

@@ -1,14 +1,27 @@
 <template>
-    <canvas id="canvas1"></canvas>
+    <canvas id="canvas1" @click="showFullPicker = !showFullPicker"></canvas>
+
+    <transition name="fade">
+      <color-picker
+        v-if="showFullPicker"
+        class="colorPicker"
+        v-bind="colorLines"
+        @input="colorPickInput"
+        initially-collapsed="false">
+      </color-picker>
+    </transition>
+
 </template>
 
 <script>
 // @ is an alias to /src
 import { mapState, mapActions } from 'vuex';
+import ColorPicker from '@radial-color-picker/vue-color-picker';
 
 export default {
   name: 'AnimateFirst',
   components: {
+    ColorPicker,
   },
   data() {
     return {
@@ -22,6 +35,7 @@ export default {
         alpha: 1,
       },
       heightHeader: 80,
+      showFullPicker: true,
     };
   },
   mounted() {
@@ -44,6 +58,9 @@ export default {
   },
   methods: {
     ...mapActions('canvas1', ['addCircle', 'addLine', 'clearAllCircles', 'clearAllLines']),
+    colorPickInput(hue) {
+      this.colorLines.hue = hue;
+    },
     closeCanvas() {
       this.canvas = null;
       this.ctx = null;
@@ -181,6 +198,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~@radial-color-picker/vue-color-picker/dist/vue-color-picker.min.css';
+
 #canvas1 {
   position: fixed;
   top: 80px;
@@ -188,5 +207,13 @@ export default {
   right: 0;
   bottom: 10px;
 }
-
+.colorPicker{
+  position: fixed;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
 </style>

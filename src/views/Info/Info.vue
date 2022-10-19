@@ -74,21 +74,21 @@ export default {
 
   .title{
     text-align: left;
-    font-size: 25px;
+    font-size: min(calc(100vw / 35), 25px);
     font-weight: bold;
     margin-top: 20px;
   }
   .info{
     margin-left: 30px;
     .title{
-      font-size: 20px;
+      font-size: min(calc(100vw / 40), 20px);
       font-weight: bold;
       margin-top: 10px;
       text-align: left;
     }
     .description{
-      margin: 10px 20px 0;
-      font-size: 20px;
+      margin: 10px 10px 0;
+      font-size: min(calc(100vw / 40), 20px);
       text-align: left;
     }
   }

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
+    "@radial-color-picker/vue-color-picker": "^5.0.1",
     "bootstrap": "^5.2.2",
     "bootstrap-vue-3": "^0.3.12",
     "core-js": "^3.6.5",
