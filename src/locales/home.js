@@ -4,6 +4,8 @@ export default {
   frontendDeveloper: { en: 'FRONTEND-DEVELOPER', ru: 'FRONTEND-РАЗРАБОТЧИК' },
 
   workExperience: { en: 'Work experience', ru: 'Опыт работы' },
+  workExperienceVerv: { en: 'Verv: August 2017 - August 2018', ru: 'Verv: Август 2017 — август 2018' },
+  workExperienceBSLab: { en: 'BSLab: September 2018 – January 2022', ru: 'BSLab: Сентябрь 2018 — январь 2022' },
 
   AboutMe: { en: 'About me', ru: 'Обо мне' },
   AboutMeInfo: {

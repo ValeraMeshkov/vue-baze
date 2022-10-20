@@ -1,4 +1,19 @@
 export default {
+  toolsForCreating: { en: 'Current Resume project on Vue and tools for its creation', ru: 'Текущий Резюме проект на Vue и инструменты для его создания' },
+  featuresAdded: { en: 'Added modules', ru: 'Добавлены модули' },
+  addedCustomMudules: { en: 'Added custom modules', ru: 'Добавлены кастомные мудули' },
+  theProjectProvidedWorkWith: { en: 'The project provided work with', ru: 'В проекте предоставлена работа с' },
+
+  idea: {
+    en: 'The idea of ​​the project is related to the creation of a simple basic scalable application with everything necessary and correctly created',
+    ru: 'Идея проекта связана с созданием простого базового масштабируемого приложения со всем необходимым и корректно созданными',
+  },
+  dividedIntoModules: { en: 'divided into modules', ru: 'c разделением на модули' },
+  removalOfReusedFunctions: { en: 'removal of reused functions', ru: 'вынос переиспользуемых функций' },
+  separateLocalization: { en: 'each individual module has a separate localization', ru: 'каждый отдельный модуль имеет отдельную локализацию' },
+  individualStylesForASpecificModule: { en: 'the ability to take out individual styles for a specific module', ru: 'возможность выноса отдельных стилей для конкретного модуля' },
+  createdReusedVariablesAndMixins: { en: 'created reused variables and mixins', ru: 'созданы переиспользованные переменные и миксины' },
+
   whatIDidOnPastProjects: { en: 'What I did on past projects', ru: 'Чем я занимался на прошлых проектах' },
   workedOnProjectsFor: { en: 'Worked on projects for', ru: 'Работал с проектами на' },
   usedLibraries: { en: 'Used libraries', ru: 'Использовали библиотеки' },
@@ -22,19 +37,4 @@ export default {
     en: 'There were also projects from scratch and I had to take part in the creation of architecture',
     ru: 'Также были проекты с нуля и приходилось принимать участие в создании архитектуры',
   },
-
-  toolsForCreating: { en: 'Tools for creating a Single Page Application with Vue', ru: 'Инструменты для создания Single Page Application на Vue' },
-  featuresAdded: { en: 'Added modules', ru: 'Добавлены модули' },
-  addedCustomMudules: { en: 'Added custom mudules', ru: 'Добавлены кастомные мудули' },
-  theProjectProvidedWorkWith: { en: 'The project provided work with', ru: 'В проекте предоставлена работа с' },
-
-  idea: {
-    en: 'The idea of ​​the project is related to the creation of a simple basic scalable application with everything necessary and correctly created',
-    ru: 'Идея проекта связана с созданием простого базового масштабируемого приложения со всем необходимым и корректно созданными',
-  },
-  dividedIntoModules: { en: 'divided into modules', ru: 'c разделением на модули' },
-  removalOfReusedFunctions: { en: 'removal of reused functions', ru: 'вынос переиспользуемых функций' },
-  separateLocalization: { en: 'each individual module has a separate localization', ru: 'каждый отдельный модуль имеет отдельную локализацию' },
-  individualStylesForASpecificModule: { en: 'the ability to take out individual styles for a specific module', ru: 'возможность выноса отдельных стилей для конкретного модуля' },
-  createdReusedVariablesAndMixins: { en: 'created reused variables and mixins', ru: 'созданы переиспользованные переменные и миксины' },
 };

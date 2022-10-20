@@ -9,8 +9,8 @@
       <div class="title">{{t('workExperience')}}</div>
 
       <div class="info">
-        <li class="description">Verv: Август 2017 — август 2018</li>
-        <li class="description">BSLab: Сентябрь 2018 — январь 2022</li>
+        <li class="description">{{t('workExperienceVerv')}}</li>
+        <li class="description">{{t('workExperienceBSLab')}}</li>
       </div>
 
       <div class="title">{{t('languageSkills')}}</div>

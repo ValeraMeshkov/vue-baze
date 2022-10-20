@@ -1,26 +1,12 @@
 <template>
   <div id="information">
 
-    <div class="title">{{t('whatIDidOnPastProjects')}} ?:</div>
-    <div class="info">
-      <li class="description">
-        {{t('workedOnProjectsFor')}}: Vue ( +Typescript, +Nuxt), React, jQuery
-      </li>
-      <li class="description">{{t('usedLibraries')}}: Lodash, Vuetify, Vue Material,
-        Element Ui, Bootstrap-Vue, Quasar, Buefy</li>
-      <li class="description">{{t('projectWithOnlineBroadcast')}}</li>
-      <li class="description">{{t('neuronForFood')}}</li>
-      <li class="description">{{t('differentWorks')}}</li>
-      <li class="description">{{t('interfaceSupport')}}</li>
-      <li class="description">{{t('architectureOfProjects')}}</li>
-    </div>
-
     <div class="title">{{t('toolsForCreating')}}</div>
     <div class="info">
       <div class="title">Vue CLI</div>
       <li class="description">vue create my-project</li>
       <div class="title">{{t('featuresAdded')}}:</div>
-      <li class="description">Router, Vuex, CSS Pre-processor, Eslint, Bootstrap</li>
+      <li class="description">Router, Vuex, CSS Pre-processor, Eslint, Bootstrap, Babel</li>
       <div class="title">{{t('addedCustomMudules')}}:</div>
       <li class="description">Helpers, Locales</li>
       <div class="title">{{t('theProjectProvidedWorkWith')}}:</div>
@@ -34,6 +20,20 @@
       <li class="description">Locales ( {{t('separateLocalization')}} )</li>
       <li class="description">Styles ( {{t('individualStylesForASpecificModule')}} )</li>
       <li class="description">Styles SCSS( {{t('createdReusedVariablesAndMixins')}} )</li>
+    </div>
+
+    <div class="title otherProject">{{t('whatIDidOnPastProjects')}} ?:</div>
+    <div class="info">
+      <li class="description">
+        {{t('workedOnProjectsFor')}}: Vue ( +Typescript, +Nuxt), React, jQuery
+      </li>
+      <li class="description">{{t('usedLibraries')}}: Lodash, Vuetify, Vue Material,
+        Element Ui, Bootstrap-Vue, Quasar, Buefy</li>
+      <li class="description">{{t('projectWithOnlineBroadcast')}}</li>
+      <li class="description">{{t('neuronForFood')}}</li>
+      <li class="description">{{t('differentWorks')}}</li>
+      <li class="description">{{t('interfaceSupport')}}</li>
+      <li class="description">{{t('architectureOfProjects')}}</li>
     </div>
 
   </div>
@@ -83,6 +83,13 @@ export default {
     font-weight: bold;
     margin-top: 20px;
   }
+
+  .otherProject{
+    border-top: 1px solid $styleColor;
+    margin-top: 40px;
+    padding-top: 40px;
+  }
+
   .info{
     margin-left: 30px;
     .title{
